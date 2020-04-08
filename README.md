@@ -24,6 +24,10 @@ O arquivo principal é o `scanner.js`.
 
 A função `table()` é responsável por chamar as funções que constroem a tabela de tokens.
 
+Ao colocar a entrada na função `table()`, vá ao seu terminal e digite `node scanner.js`
+
+![](exmaple-exec.gif)
+
 ### Limitações para a entrada
 
 A entrada fornecida na função `table()` deve ser em formato de string. EX: `table("( 52 + 10 ) * 2")`.
