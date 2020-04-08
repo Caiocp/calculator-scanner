@@ -26,7 +26,7 @@ A função `table()` é responsável por chamar as funções que constroem a tab
 
 Ao colocar a entrada na função `table()`, vá ao seu terminal e digite `node scanner.js`
 
-![](exmaple-exec.gif)
+![](examaple-exec.gif)
 
 ### Limitações para a entrada
 
