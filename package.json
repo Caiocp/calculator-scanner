@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "array-to-table": "^1.0.1"
+  },
+  "scripts": {
+    "start": "nodemon scanner.js",
+    "teste": "nodemon teste.js"
+  }
+}
