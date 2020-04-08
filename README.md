@@ -13,7 +13,7 @@ Crie um analisador léxico de uma calculadora. O objetivo será criar uma tabela
 
 ### Como executar
 
-*É necessário ter o [Node.js] (https://nodejs.org/en/) instalado para poder executar o código*
+*É necessário ter o [Node.js](https://nodejs.org/en/) instalado para poder executar o código*
 
 Clone esse repositório com `git clone https://github.com/Caiocp/calculator-scanner.git`
 
