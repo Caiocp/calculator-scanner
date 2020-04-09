@@ -14,6 +14,8 @@ Crie um analisador léxico de uma calculadora. O objetivo será criar uma tabela
 
 *É necessário ter o [Node.js](https://nodejs.org/en/) instalado para poder executar o código*
 
+Se não possuir o node no seu computador, pode rodar o código pelo [Repl.it](https://repl.it/@CaioCarvalho2/calculator-scanner)
+
 Clone esse repositório com `git clone https://github.com/Caiocp/calculator-scanner.git`
 
 Com npm, rode no seu terminal na pasta do projeto:
