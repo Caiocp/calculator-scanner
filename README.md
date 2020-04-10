@@ -39,3 +39,5 @@ Todos os caracteres **devem** ser separador por espaços para o correto reconhec
 `table("12 + 12 * 2")`✔️
 
 `table("12+12*2")`❌
+
+Números com sinal (seja positivo ou negativo) devem estar juntos. EX: `table("12 + 12 * -2")`
