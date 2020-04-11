@@ -1,14 +1,11 @@
 const arrayToTable = require("array-to-table");
 
-const operatorsValue = {
+const tokensValue = {
   "+": "SOMA",
   "-": "SUBTRAÇÃO",
   "*": "MULTIPLICAÇÃO",
   "/": "DIVISÃO",
   "**": "EXPONENCIAÇÃO",
-};
-
-const parenthesisValue = {
   "(": "PESQ",
   ")": "PDIR",
 };
@@ -19,36 +16,12 @@ function removeSpaces(string) {
   return string.replace(regex, " ");
 }
 
-function arrayOfNums(string) {
-  const regex = /\d{1,}/g;
-
-  let array = string.match(regex);
-
-  return array;
-}
-
-function anyOperator(string) {
-  const regex = /[^a-zA-Z\d\s()]{1,}/g;
-
-  let teste = string.match(regex);
-
-  return teste;
-}
-
-function anyParenthesis(string) {
-  const regex = /[()]{1,}/g;
-
-  let teste = string.match(regex);
-
-  return teste;
-}
-
 function invalidToken(string) {
   const regex = /[^\d+-//*()\s]/g;
 
   let token = string.match(regex);
 
-  return { bool: !!token, token };
+  return { unexpectedToken: !!token, token };
 }
 
 function getValues(inputArray) {
@@ -56,25 +29,25 @@ function getValues(inputArray) {
   inputArray.forEach((el) => {
     switch (el) {
       case "+":
-        value.push(operatorsValue["+"]);
+        value.push(tokensValue["+"]);
         break;
       case "-":
-        value.push(operatorsValue["-"]);
+        value.push(tokensValue["-"]);
         break;
       case "*":
-        value.push(operatorsValue["*"]);
+        value.push(tokensValue["*"]);
         break;
       case "/":
-        value.push(operatorsValue["/"]);
+        value.push(tokensValue["/"]);
         break;
       case "**":
-        value.push(operatorsValue["**"]);
+        value.push(tokensValue["**"]);
         break;
       case "(":
-        value.push(parenthesisValue["("]);
+        value.push(tokensValue["("]);
         break;
       case ")":
-        value.push(parenthesisValue[")"]);
+        value.push(tokensValue[")"]);
         break;
       default:
         value.push(el);
@@ -119,14 +92,11 @@ function getTypes(inputArray) {
 
 function table(input) {
   input = removeSpaces(input);
-  const { bool, token } = invalidToken(input);
-  if (bool) {
-    console.log(`Type error: unexpected token "${token}"`);
+  const { unexpectedToken, token } = invalidToken(input);
+  if (unexpectedToken) {
+    return console.log(`Type error: unexpected token "${token}"`);
   } else {
     const inputArray = input.split(" ");
-    // const operators = anyOperator(input) || [];
-    // const parenthesis = !!anyParenthesis(input) ? anyParenthesis(input) : "";
-    // const nums = arrayOfNums(input);
     const valueArray = getValues(inputArray);
     const typeArray = getTypes(inputArray);
     let tableArray = [];
@@ -138,9 +108,18 @@ function table(input) {
         valor: valueArray[i],
       };
     }
-    const table = arrayToTable(tableArray);
-    console.log(table);
+    return arrayToTable(tableArray);
   }
 }
 
-table("1 * 2");
+const output = table("1 + 2 / 2");
+if (output) console.log(output);
+
+/* exemplos
+---> +1 * 2
+---> +5 ** 2 - ( 4 )
+---> -5 - -7
+---> - ( 8 + 12 ) ** 1 * 3 / -4
+---> a2 + ( 3 - 5 )
+---> 1 + 2 / b
+*/
