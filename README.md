@@ -14,6 +14,8 @@ Crie um analisador léxico de uma calculadora. O objetivo será criar uma tabela
 
 *É necessário ter o [Node.js](https://nodejs.org/en/) instalado para poder executar o código*
 
+Se não possuir o node no seu computador, pode rodar o código pelo [Repl.it](https://repl.it/@CaioCarvalho2/calculator-scanner)
+
 Clone esse repositório com `git clone https://github.com/Caiocp/calculator-scanner.git`
 
 Com npm, rode no seu terminal na pasta do projeto:
@@ -26,7 +28,7 @@ A função `table()` é responsável por chamar as funções que constroem a tab
 
 Ao colocar a entrada na função `table()`, vá ao seu terminal e digite `node scanner.js`
 
-![](exmaple-exec.gif)
+![](example-exec.gif)
 
 ### Limitações para a entrada
 
@@ -37,3 +39,5 @@ Todos os caracteres **devem** ser separador por espaços para o correto reconhec
 `table("12 + 12 * 2")`✔️
 
 `table("12+12*2")`❌
+
+Números com sinal (seja positivo ou negativo) devem estar juntos. EX: `table("12 + 12 * -2")`
